@@ -14,8 +14,8 @@ name: Surveillance CROUS Limoges
 
 on:
   schedule:
-    - cron: "*/5 * * * *"   # minutes 2,7,12,... (évite la congestion de la minute 0)
-  workflow_dispatch: {}         # bouton "Run workflow" pour tester à la main
+    - cron: "*/5 * * * *"
+  workflow_dispatch: {}
 
 # Une seule exécution à la fois : évite deux commits d'état simultanés.
 concurrency:
