@@ -1,15 +1,3 @@
-# ============================================================
-#  Surveillance CROUS — GitHub Actions
-#  Lance une vérification environ toutes les 5 minutes.
-#
-#  ⚠️ À savoir (limites de GitHub, pas du bot) :
-#   - "*/5" est la fréquence MINIMALE autorisée ; en pratique GitHub
-#     déclenche avec du retard aux heures chargées (souvent 5 à 15 min
-#     réels entre deux exécutions). C'est le prix du 100 % gratuit.
-#   - GitHub désactive les planifications après 60 jours sans activité
-#     dans le dépôt ; ici, le commit automatique du fichier d'état
-#     maintient le dépôt actif, donc pas de souci.
-# ============================================================
 name: Surveillance CROUS Limoges
 
 on:
@@ -17,13 +5,12 @@ on:
     - cron: "*/5 * * * *"
   workflow_dispatch: {}
 
-# Une seule exécution à la fois : évite deux commits d'état simultanés.
 concurrency:
   group: surveillance-crous
   cancel-in-progress: false
 
 permissions:
-  contents: write               # nécessaire pour committer data/etat.json
+  contents: write
 
 jobs:
   verifier:
@@ -53,8 +40,9 @@ jobs:
           PRIORITY_REPEAT: "3"
           HEARTBEAT_HOUR: "9"
           TIMEZONE: "Africa/Algiers"
-          LOG_FILE: ""            # sur Actions : logs console uniquement
+          LOG_FILE: ""
         run: python crous_bot.py --once
+
       - name: Sauvegarder l'état (mémoire entre deux exécutions)
         run: |
           git config user.name "crous-bot"
