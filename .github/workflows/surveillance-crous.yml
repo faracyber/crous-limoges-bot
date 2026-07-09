@@ -55,7 +55,6 @@ jobs:
           TIMEZONE: "Africa/Algiers"
           LOG_FILE: ""            # sur Actions : logs console uniquement
         run: python crous_bot.py --once
-
       - name: Sauvegarder l'état (mémoire entre deux exécutions)
         run: |
           git config user.name "crous-bot"
@@ -63,6 +62,10 @@ jobs:
           git add data/etat.json 2>/dev/null || true
           if ! git diff --cached --quiet; then
             git commit -m "état de surveillance [skip ci]"
-            git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || true
-            git push || (git pull --rebase origin "${GITHUB_REF_NAME}" && git push)
+            for i in 1 2 3; do
+              git fetch origin "${GITHUB_REF_NAME}"
+              git merge -s ours "origin/${GITHUB_REF_NAME}" -m "fusion état [skip ci]" || true
+              git push origin "HEAD:${GITHUB_REF_NAME}" && break
+              sleep 3
+            done
           fi
