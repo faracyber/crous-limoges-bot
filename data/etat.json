@@ -1,9 +1,9 @@
 {
   "disponibles": {},
-  "echecs_consecutifs": 1,
+  "echecs_consecutifs": 0,
   "tool_id": 47,
   "tool_id_verifie_le": "2026-08-19",
   "mode": "api",
-  "derniere_reussite": "2026-08-19T07:16:37+01:00",
+  "derniere_reussite": "2026-08-19T08:49:38+01:00",
   "dernier_heartbeat": "2026-08-18"
 }
