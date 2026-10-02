@@ -1,11 +1,9 @@
 {
-  "disponibles": {
-    "595": "2026-10-02T18:59:13+01:00"
-  },
+  "disponibles": {},
   "echecs_consecutifs": 0,
   "tool_id": 47,
   "tool_id_verifie_le": "2026-10-02",
   "mode": "html",
-  "derniere_reussite": "2026-10-02T18:59:13+01:00",
+  "derniere_reussite": "2026-10-02T22:52:42+01:00",
   "dernier_heartbeat": "2026-10-02"
 }
