@@ -1,10 +1,12 @@
 {
-  "disponibles": {},
+  "disponibles": {
+    "595": "2026-11-04T03:22:38+01:00"
+  },
   "echecs_consecutifs": 0,
-  "tool_id": 47,
-  "tool_id_verifie_le": "2026-11-03",
+  "tool_id": 48,
+  "tool_id_verifie_le": "2026-11-04",
   "mode": "api",
-  "derniere_reussite": "2026-11-03T23:16:55+01:00",
+  "derniere_reussite": "2026-11-04T03:22:38+01:00",
   "dernier_heartbeat": "2026-11-03",
   "derniere_alerte_panne": "2026-10-26T07:18:24.988784+01:00"
 }
